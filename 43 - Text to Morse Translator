@@ -1,0 +1,80 @@
+#include <iostream>
+#include <windows.h>
+#include <string>
+#include <wctype.h>
+
+using namespace std;
+
+string coversorMorse (string s)
+{
+    string aux;
+    for (int i = 0; i !=s.length(); i++)
+    switch (towupper(s[i]))
+    {
+        case('A'): aux = aux+".- ";  break;
+        case('B'): aux = aux+"-... "; break;
+        case('C'): aux = aux+"-.-. "; break;
+        case('D'): aux = aux+"-.. "; break;
+        case('E'): aux = aux+". "; break;
+        case('F'): aux = aux+"..-. "; break;
+        case('G'): aux = aux+"--. "; break;
+        case('H'): aux = aux+".... "; break;
+        case('I'): aux = aux+".. "; break;
+        case('J'): aux = aux+".--- "; break;
+        case('K'): aux = aux+"-.- "; break;
+        case('L'): aux = aux+".-.. "; break;
+        case('M'): aux = aux+"-- "; break;
+        case('N'): aux = aux+"-. "; break;
+        case('O'): aux = aux+"--- "; break;
+        case('P'): aux = aux+".--. "; break;
+        case('Q'): aux = aux+"--.- "; break;
+        case('R'): aux = aux+".-. "; break;
+        case('S'): aux = aux+"... "; break;
+        case('T'): aux = aux+"- "; break;
+        case('U'): aux = aux+"..- "; break;
+        case('V'): aux = aux+"...- "; break;
+        case('W'): aux = aux+".-- "; break;
+        case('X'): aux = aux+"-..- "; break;
+        case('Y'): aux = aux+"-.-- "; break;
+        case('Z'): aux = aux+"--.. "; break;
+
+        case('1'): aux = aux+".---- "; break;
+        case('2'): aux = aux+"..--- "; break;
+        case('3'): aux = aux+"...-- "; break;
+        case('4'): aux = aux+"....- "; break;
+        case('5'): aux = aux+"..... "; break;
+        case('6'): aux = aux+"-.... "; break;
+        case('7'): aux = aux+"--... "; break;
+        case('8'): aux = aux+"---.. "; break;
+        case('9'): aux = aux+"----. "; break;
+        case('0'): aux = aux+"----- "; break;
+
+        case(':'): aux = aux+"--... "; break;
+        case(','): aux = aux+"--..-- "; break;
+        case(';'): aux = aux+"-.-.-. "; break;
+        case('?'): aux = aux+"..--.. "; break;
+        case('!'): aux = aux+"-.-.-- "; break;
+        case(' '): aux = aux+"  "; break;
+    }
+    return aux;
+}
+
+int main()
+{
+   string c;
+   cout<<"Informe o Texto: ";
+   cin>>c;
+   c = coversorMorse (c);
+   cout<<c<<"\nAguarde o audio...";
+   Sleep(1000);
+  for (int i = 0; i !=c.length(); i++)
+  {
+     switch (towupper(c[i]))
+    {
+       case('.'): Beep(800,500); break;
+       case('-'): Beep(800,1000); break;
+       case(' '): Sleep(1000);
+    }
+  }
+    return 0;
+}
